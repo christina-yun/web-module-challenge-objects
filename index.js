@@ -226,10 +226,18 @@ Use the carMaker function below to do the following:
 */
 
 
-function carMaker(/* code here */) {
-    /* code here */
-    
-}
+function carMaker(odometer) {
+    return {
+      odometer: odometer,
+      drive: function(distance){
+        return odometer + distance;
+      }
+    }
+    }
+    const car1 = carMaker(10);
+    const toyotaCamry = carMaker(60400);
+
+    console.log('Stretch 3: ',toyotaCamry.drive(100));
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
