@@ -118,7 +118,7 @@ Write a function that creates an object with name, rating, feedback, add the new
   //   /*Your Code Here */
   }
 
-console.log('Task 5:',addReview(reviews, 'Christina', '3', 'It was aight.'));
+console.log('Task 5:',addReview(reviews, 'Christina', 3, 'It was aight.'));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -135,7 +135,7 @@ function getReviewByIndex(array, index) {
   return `${array[index].name} gave the restaurant a ${array[index].rating} star review, and their feedback was: ${array[index].feedback}`
 }
 
-console.log('Task 6', getReviewByIndex(reviews, 5));
+console.log('Task 6', getReviewByIndex(reviews, 3));
   
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -171,10 +171,18 @@ Use the getReviewsByRating function below to do the following:
   ]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
-  }
+ function getReviewByRating(array, rating) {
+    const newArray = [];
 
+  for (let i = 0; i < array.length; i++){
+    if(Math.floor(array[i].rating) === rating){
+      newArray.push(array[i]);
+    }
+    } 
+  return newArray;
+ }  
+  
+console.log('Stretch 1:', getReviewByRating(reviews, 5));
   
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪💪   
 Use the getLongReviews function below to do the following:
@@ -188,11 +196,17 @@ Use the getLongReviews function below to do the following:
     {name: "Julius", rating: 2, feedback: "I was largely unimpressed by this venue. Nothing special on the menu and too expensive. The atmosphere is polarizing, and not for me, but I think some would like it." }
   ]
 */
-
-function getLongReviews(/* code here */) {
-    /* code here */
+function getLongReviews(array, numOfWords) {
+  const newArray = [];
+  for (let i = 0; i < array.length; i++){
+    if(array[i].feedback.split(' ').length > numOfWords){
+      newArray.push(array[i]);
+    }
   }
+  return newArray;
+}
   
+  console.log('Stretch 2: ',getLongReviews(reviews,15));
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 3: 💪💪💪💪💪💪💪💪💪💪 
 This stretch goal does not use the reviews data!  You create your own object in this stretch goal.
